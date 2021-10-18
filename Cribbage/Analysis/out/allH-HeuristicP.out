@@ -1,0 +1,13 @@
+RandomH-HeuristicP,RetainedEVH-HeuristicP,GrossHalfCribEVH-HeuristicP,RelativeHalfCribEVH-HeuristicP
+NUM_GAMES,1000
+strat1,strat1WinPerc,strat1AvgPtDiff,strat2,strat2WinPerc,strat2AvgPtDiff
+RandomH-HeuristicP,0.515,16.5049,RandomH-HeuristicP,0.485,17.1567
+RandomH-HeuristicP,0.044,12.2727,RetainedEVH-HeuristicP,0.956,33.3692
+RandomH-HeuristicP,0.032,7.03125,GrossHalfCribEVH-HeuristicP,0.968,35.4659
+RandomH-HeuristicP,0.035,7.6,RelativeHalfCribEVH-HeuristicP,0.965,36.6819
+RetainedEVH-HeuristicP,0.515,16.9301,RetainedEVH-HeuristicP,0.485,16.3052
+RetainedEVH-HeuristicP,0.45,15.3733,GrossHalfCribEVH-HeuristicP,0.55,16.9782
+RetainedEVH-HeuristicP,0.48,15.5333,RelativeHalfCribEVH-HeuristicP,0.52,16.9308
+GrossHalfCribEVH-HeuristicP,0.495,16.3899,GrossHalfCribEVH-HeuristicP,0.505,16.7921
+GrossHalfCribEVH-HeuristicP,0.493,16.1643,RelativeHalfCribEVH-HeuristicP,0.507,16.6686
+RelativeHalfCribEVH-HeuristicP,0.487,14.9384,RelativeHalfCribEVH-HeuristicP,0.513,16.1598
