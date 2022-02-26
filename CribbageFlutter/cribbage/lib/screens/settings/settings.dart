@@ -6,11 +6,19 @@ class Settings extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        bottomOpacity: 0.0,
-        //elevation: 0.0,
+        elevation: 0.0,
       ),
-      body: Center(
-        child: Text("Settings"),
+      extendBodyBehindAppBar: true,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/portraitTable.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: const Center(
+          child: Text("Settings"),
+        ),
       ),
     );
   }
