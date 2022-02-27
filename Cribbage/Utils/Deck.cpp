@@ -58,7 +58,7 @@ void Deck::makeUnavailable(int i)
 
 Card Deck::cut()
 {
-    int i = rand() % mAvailable.size();
+    int i = Random::Instance()->randInt() % mAvailable.size();
     mCut = mAvailable[i];
     makeUnavailable(i);
     return mCut;
