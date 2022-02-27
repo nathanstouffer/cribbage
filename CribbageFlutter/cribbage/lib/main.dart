@@ -3,10 +3,10 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'screens/game/game.dart';
-import 'screens/menu/menu.dart';
-import 'screens/settings/settings.dart';
-import 'screens/statistics/statistics.dart';
+import 'screens/game/game_screen.dart';
+import 'screens/menu/menu_screen.dart';
+import 'screens/settings/settings_screen.dart';
+import 'screens/statistics/statistics_screen.dart';
 
 void main() {
   runApp(const App());
@@ -20,10 +20,10 @@ class App extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Menu(),
-        '/game': (context) => Game(),
-        '/settings': (context) => Settings(),
-        '/statistics': (context) => Statistics(),
+        '/': (context) => MenuScreen(),
+        '/game': (context) => GameScreen(),
+        '/settings': (context) => SettingsScreen(),
+        '/statistics': (context) => StatisticsScreen(),
       },
       // theme: // TODO make the theme
     );

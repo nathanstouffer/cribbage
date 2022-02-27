@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../models/deck/card.dart';
+import '../../models/deck/card.dart'
+    as cb; // prefix to avoid name conflict with Card in material package
 
 class CardButton extends StatelessWidget {
-  //final Card card;
+  final cb.Card mCard;
+
+  CardButton(this.mCard);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +16,8 @@ class CardButton extends StatelessWidget {
           fit: BoxFit.fill,
         ),
       ),
-      child: const Center(
-        child: Text("tmp"),
+      child: Center(
+        child: Text(mCard.toCompactString()),
       ),
     );
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cribbage/screens/game/card_button.dart';
 
-class Game extends StatelessWidget {
+// TODO I think delete this import
+import 'package:cribbage/models/deck/card.dart' as cb;
+
+class GameScreen extends StatelessWidget {
   //final Game game;
 
   @override
@@ -43,11 +46,19 @@ class Game extends StatelessWidget {
   //List<Widget> computerCards(Game game) {
   List<Widget> computerCards() {
     //game.computerCards.map((card) => )
-    return [CardButton(), CardButton(), CardButton()];
+    return [
+      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs)),
+      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs)),
+      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs))
+    ];
   }
 
   //List<Widget> playerCards(Game game) {
   List<Widget> playerCards() {
-    return [CardButton(), CardButton(), CardButton()];
+    return [
+      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts)),
+      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts)),
+      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts))
+    ];
   }
 }
