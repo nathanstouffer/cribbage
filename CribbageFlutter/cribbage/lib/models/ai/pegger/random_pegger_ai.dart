@@ -7,7 +7,7 @@ class RandomPeggerAI implements PeggerAI {
 
   Card? select(List<Card> played, List<Card> avail) {
     List<Card> validCards = PeggerAI.valid(played, avail);
-    if (validCards.length == 0) {
+    if (validCards.isEmpty) {
       return null;
     }
 
