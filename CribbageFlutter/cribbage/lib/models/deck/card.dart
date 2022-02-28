@@ -21,6 +21,10 @@ class Card {
 
   Card(this._value, this._suit);
 
+  bool operator <(Card card) {
+    return _value.index < card._value.index;
+  }
+
   int pips() {
     switch (_value) {
       case Value.ace:
@@ -135,5 +139,13 @@ class Card {
   @override
   String toString() {
     return valueStr() + " " + suitStr();
+  }
+
+  Value getValue() {
+    return this._value;
+  }
+
+  Suit getSuit() {
+    return this._suit;
   }
 }
