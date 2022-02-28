@@ -36,6 +36,7 @@ options:
 	@echo " ---- analysis-dir"
 	@echo " ---- root-dir"
 
+all: util-dir hand-ai-dir pegger-ai-dir game-dir analysis-dir root-dir
 
 # options that we want to display to users
 util-dir: util clean-object-files
