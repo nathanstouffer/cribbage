@@ -25,6 +25,20 @@ class Deck {
     }
   }
 
+  List<List<Card>> deal() {
+    List<Card> first = <Card>[];
+    List<Card> second = <Card>[];
+    for (int i = 0; i < 6; i++) {
+      // deal six cards, one to each player
+      first.add(_available[0]);
+      _makeUnavailable(0);
+
+      second.add(_available[0]);
+      _makeUnavailable(0);
+    }
+    return [first, second];
+  }
+
   Card cut() {
     int i = _rand.nextInt(_available.length);
     Card cut = _available[i];
@@ -47,8 +61,8 @@ class Deck {
 
   static List<Card> newDeckOrder() {
     List<Card> list = <Card>[];
-    for (int i = 0; i < NUMSUITS; i++) {
-      for (int j = 0; j < SUITSIZE; j++) {
+    for (int s = 0; s < NUMSUITS; s++) {
+      for (int i = 0; i < SUITSIZE; i++) {
         Suit suit;
         switch (i) {
           case 0:
@@ -64,11 +78,11 @@ class Deck {
             suit = Suit.spades;
             break;
         }
-        int indx = j;
-        if (i == 2 || i == 3) {
-          indx = SUITSIZE - j - 1;
+        int v = i;
+        if (s == 2 || s == 3) {
+          v = SUITSIZE - i - 1;
         } // reverse if in second half
-        list.add(Card(Value.values[i], Suit.values[indx]));
+        list.add(Card(Value.values[v], Suit.values[s]));
       }
     }
 

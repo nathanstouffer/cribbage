@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:cribbage/models/game/game.dart';
 import 'package:cribbage/screens/game/card_button.dart';
 
-// TODO I think delete this import
-import 'package:cribbage/models/deck/card.dart' as cb;
-
 class GameScreen extends StatelessWidget {
-  //final Game game;
+  final Game _game = new Game();
+
+  GameScreen() {
+    _game.deal();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,41 +26,47 @@ class GameScreen extends StatelessWidget {
         ),
         child: Center(
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: computerCards(),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0.0, 50.0, 10.0, 0.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text("dealer: " +
+                          (_game.humanDealer() ? "you" : "computer")),
+                      Text("computer score: " + _game.compScore().toString()),
+                      Text("your score: " + _game.humanScore().toString())
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: playerCards(),
-                ),
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: computerCards(_game)),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: humanCards(_game))
+                  ],
+                )
               ]),
         ),
       ),
     );
   }
 
-  //List<Widget> computerCards(Game game) {
-  List<Widget> computerCards() {
-    //game.computerCards.map((card) => )
-    return [
-      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs)),
-      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs)),
-      CardButton(cb.Card(cb.Value.ace, cb.Suit.clubs))
-    ];
+  List<Widget> computerCards(Game game) {
+    return game.computerCards().map((card) => CardButton(card)).toList();
   }
 
-  //List<Widget> playerCards(Game game) {
-  List<Widget> playerCards() {
-    return [
-      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts)),
-      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts)),
-      CardButton(cb.Card(cb.Value.two, cb.Suit.hearts))
-    ];
+  List<Widget> humanCards(Game game) {
+    return game.humanCards().map((card) => CardButton(card)).toList();
   }
 }

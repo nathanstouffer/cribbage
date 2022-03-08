@@ -119,9 +119,10 @@ class Card {
         ret += pips().toString();
         break;
     }
+    ret += " ";
     switch (_suit) {
       case Suit.clubs:
-        ret += "C";
+        ret += ":\u200d";
         break;
       case Suit.diamonds:
         ret += "D";
@@ -131,6 +132,43 @@ class Card {
         break;
       case Suit.spades:
         ret += "S";
+        break;
+    }
+    return ret;
+  }
+
+  String toPrettyString() {
+    String ret = "";
+    switch (_value) {
+      case Value.ace:
+        ret += "A";
+        break;
+      case Value.jack:
+        ret += "J";
+        break;
+      case Value.queen:
+        ret += "Q";
+        break;
+      case Value.king:
+        ret += "K";
+        break;
+      default:
+        ret += pips().toString();
+        break;
+    }
+    ret += " ";
+    switch (_suit) {
+      case Suit.clubs:
+        ret += "♣";
+        break;
+      case Suit.diamonds:
+        ret += "♦";
+        break;
+      case Suit.hearts:
+        ret += "♥";
+        break;
+      case Suit.spades:
+        ret += "♠";
         break;
     }
     return ret;
