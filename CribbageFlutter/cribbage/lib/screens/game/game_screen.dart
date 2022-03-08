@@ -41,18 +41,24 @@ class GameScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: computerCards(_game)),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: humanCards(_game)),
-                  ]),
+              Expanded(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: computerCards(_game)),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: humanCardsToThrow(_game)),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: humanCards(_game)),
+                    ]),
+              ),
             ]),
       ),
     );
@@ -63,6 +69,22 @@ class GameScreen extends StatelessWidget {
   }
 
   List<Widget> humanCards(Game game) {
-    return game.humanCards().map((card) => CardButton(card)).toList();
+    return game
+        .humanCards()
+        .map((card) => GestureDetector(
+              child: CardButton(card),
+              onTap: () => _game.markToThrow(card), // TODO update screen on tap
+            ))
+        .toList();
+  }
+
+  List<Widget> humanCardsToThrow(Game game) {
+    return game
+        .humanToThrow()
+        .map((card) => GestureDetector(
+              child: CardButton(card),
+              onTap: () => _game.markToKeep(card), // TODO update screen on tap
+            ))
+        .toList();
   }
 }

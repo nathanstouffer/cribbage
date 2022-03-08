@@ -17,6 +17,8 @@ class Game {
   List<Card> _compCards = [];
   List<Card> _humanCards = [];
 
+  List<Card> _humanToThrow = [];
+
   void deal() {
     _deck.shuffle();
     List<List<Card>> dealt = _deck.deal(); // two lists of 6 cards each
@@ -26,6 +28,20 @@ class Game {
     } else {
       _compCards = dealt[1];
       _humanCards = dealt[0];
+    }
+  }
+
+  void markToThrow(Card card) {
+    if (_humanCards.contains(card)) {
+      _humanCards.remove(card);
+      _humanToThrow.add(card);
+    }
+  }
+
+  void markToKeep(Card card) {
+    if (_humanToThrow.contains(card)) {
+      _humanToThrow.remove(card);
+      _humanCards.add(card);
     }
   }
 
@@ -47,5 +63,9 @@ class Game {
 
   List<Card> humanCards() {
     return _humanCards;
+  }
+
+  List<Card> humanToThrow() {
+    return _humanToThrow;
   }
 }

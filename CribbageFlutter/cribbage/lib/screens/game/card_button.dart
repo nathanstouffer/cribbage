@@ -15,7 +15,7 @@ class CardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(3.0, 20.0, 3.0, 20.0),
+      margin: const EdgeInsets.fromLTRB(3.0, 30.0, 3.0, 30.0),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8)),
         image: DecorationImage(

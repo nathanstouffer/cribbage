@@ -8,12 +8,10 @@ class Player {
   List<Card> _pegged = [];
   List<Card> _notPegged = [];
 
-  void markPegged(Card toMark) {
-    for (Card card in _notPegged) {
-      if (toMark == card) {
-        _pegged.add(card);
-        _notPegged.remove(card);
-      }
+  void markPegged(Card card) {
+    if (_notPegged.contains(card)) {
+      _notPegged.remove(card);
+      _pegged.add(card);
     }
   }
 }
