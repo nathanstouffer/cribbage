@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'card.dart';
 import 'dart:math';
 
@@ -63,21 +65,6 @@ class Deck {
     List<Card> list = <Card>[];
     for (int s = 0; s < NUMSUITS; s++) {
       for (int i = 0; i < SUITSIZE; i++) {
-        Suit suit;
-        switch (i) {
-          case 0:
-            suit = Suit.clubs;
-            break;
-          case 1:
-            suit = Suit.diamonds;
-            break;
-          case 2:
-            suit = Suit.hearts;
-            break;
-          case 3:
-            suit = Suit.spades;
-            break;
-        }
         int v = i;
         if (s == 2 || s == 3) {
           v = SUITSIZE - i - 1;

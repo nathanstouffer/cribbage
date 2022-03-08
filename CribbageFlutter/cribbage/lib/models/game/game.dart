@@ -5,7 +5,9 @@ import 'package:cribbage/models/deck/card.dart';
 import 'package:cribbage/models/deck/deck.dart';
 
 class Game {
-  Deck _deck = new Deck();
+  // TODO might be good to use a state machine in this class?
+
+  Deck _deck = Deck();
 
   int _compScore = 0;
   int _humanScore = 0;

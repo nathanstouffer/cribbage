@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new
+
 import 'hand/random_hand_ai.dart';
 import 'pegger/random_pegger_ai.dart';
 import 'hand/hand_ai.dart';

@@ -3,9 +3,9 @@ import 'package:cribbage/models/game/game.dart';
 import 'package:cribbage/screens/game/card_button.dart';
 
 class GameScreen extends StatelessWidget {
-  final Game _game = new Game();
+  final Game _game = Game();
 
-  GameScreen() {
+  GameScreen({Key? key}) : super(key: key) {
     _game.deal();
   }
 
@@ -24,27 +24,25 @@ class GameScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0.0, 50.0, 10.0, 0.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text("dealer: " +
-                          (_game.humanDealer() ? "you" : "computer")),
-                      Text("computer score: " + _game.compScore().toString()),
-                      Text("your score: " + _game.humanScore().toString())
-                    ],
-                  ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(0.0, 50.0, 10.0, 0.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text("dealer: " +
+                        (_game.humanDealer() ? "you" : "computer")),
+                    Text("computer score: " + _game.compScore().toString()),
+                    Text("your score: " + _game.humanScore().toString())
+                  ],
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -53,11 +51,9 @@ class GameScreen extends StatelessWidget {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: humanCards(_game))
-                  ],
-                )
-              ]),
-        ),
+                        children: humanCards(_game)),
+                  ]),
+            ]),
       ),
     );
   }

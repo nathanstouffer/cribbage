@@ -180,10 +180,10 @@ class Card {
   }
 
   Value getValue() {
-    return this._value;
+    return _value;
   }
 
   Suit getSuit() {
-    return this._suit;
+    return _suit;
   }
 }

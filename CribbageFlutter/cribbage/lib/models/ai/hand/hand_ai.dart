@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import '../../deck/card.dart';
 
 const double CUT_PROB = 1.0 / 46.0; // probability that a given card is cut

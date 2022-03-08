@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import '../../models/deck/card.dart'
@@ -11,12 +10,12 @@ class CardButton extends StatelessWidget {
 
   final cb.Card mCard;
 
-  CardButton(this.mCard);
+  const CardButton(this.mCard, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(3.0),
+      margin: const EdgeInsets.fromLTRB(3.0, 20.0, 3.0, 20.0),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8)),
         image: DecorationImage(
@@ -25,7 +24,7 @@ class CardButton extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Container(
+        child: SizedBox(
           height: CardButton.cardHeight,
           width: CardButton.cardAspect * CardButton.cardHeight,
           child: Center(child: Text(mCard.toPrettyString())),
