@@ -17,17 +17,20 @@ class MenuScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            // TODO see if we can get these to be TextButtons
+            children: <Widget>[
               GestureDetector(
-                child: const Text("New Game"),
+                child: const Text("New Game", style: TextStyle(fontSize: 20)),
                 onTap: () => _onNewGameTap(context),
               ),
+              const SizedBox(height: 30),
               GestureDetector(
-                child: const Text("Settings"),
+                child: const Text("Settings", style: TextStyle(fontSize: 20)),
                 onTap: () => _onSettingsTap(context),
               ),
+              const SizedBox(height: 30),
               GestureDetector(
-                child: const Text("Statistics"),
+                child: const Text("Statistics", style: TextStyle(fontSize: 20)),
                 onTap: () => _onStatisticsTap(context),
               ),
             ],
