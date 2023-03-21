@@ -3,6 +3,9 @@ import 'package:cribbage/models/game/game.dart';
 import 'package:cribbage/screens/game/card_button.dart';
 
 class GameScreen extends StatelessWidget {
+  static const TextStyle cScoreStyle =
+      TextStyle(fontSize: 20.0, backgroundColor: Colors.white);
+
   final Game _game = Game();
 
   GameScreen({Key? key}) : super(key: key) {
@@ -34,10 +37,12 @@ class GameScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text("dealer: " +
-                        (_game.humanDealer() ? "you" : "computer")),
-                    Text("computer score: " + _game.compScore().toString()),
-                    Text("your score: " + _game.humanScore().toString())
+                    Text("dealer: " + (_game.humanDealer() ? "you" : "comp"),
+                        style: cScoreStyle),
+                    Text("computer score: " + _game.compScore().toString(),
+                        style: cScoreStyle),
+                    Text("your score: " + _game.humanScore().toString(),
+                        style: cScoreStyle)
                   ],
                 ),
               ),
