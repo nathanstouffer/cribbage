@@ -124,7 +124,7 @@ class Card {
     ret += " ";
     switch (_suit) {
       case Suit.clubs:
-        ret += ":\u200d";
+        ret += "C";
         break;
       case Suit.diamonds:
         ret += "D";
