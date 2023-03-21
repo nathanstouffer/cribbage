@@ -5,8 +5,9 @@ import '../../models/deck/card.dart'
     as cb; // prefix to avoid name conflict with Card in material package
 
 class CardButton extends StatelessWidget {
-  static const double cardHeight = 80.0;
-  static const double cardAspect = 0.70454545454;
+  static const double cCardHeight = 80.0;
+  static const double cCardAspect = 0.70454545454;
+  static const double cFontSize = 22.5;
 
   final cb.Card mCard;
 
@@ -25,11 +26,24 @@ class CardButton extends StatelessWidget {
       ),
       child: Center(
         child: SizedBox(
-          height: CardButton.cardHeight,
-          width: CardButton.cardAspect * CardButton.cardHeight,
+          height: CardButton.cCardHeight,
+          width: CardButton.cCardAspect * CardButton.cCardHeight,
           child: Center(
-              child: Text(mCard.toPrettyString(),
-                  style: TextStyle(color: mCard.getColor()))),
+            child: Stack(children: <Widget>[
+              Text(
+                mCard.toPrettyString(),
+                style: TextStyle(
+                    fontSize: CardButton.cFontSize,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.grey),
+              ),
+              Text(mCard.toPrettyString(),
+                  style: TextStyle(
+                      fontSize: CardButton.cFontSize, color: mCard.getColor())),
+            ]),
+          ),
         ),
       ),
     );
