@@ -27,7 +27,9 @@ class CardButton extends StatelessWidget {
         child: SizedBox(
           height: CardButton.cardHeight,
           width: CardButton.cardAspect * CardButton.cardHeight,
-          child: Center(child: Text(mCard.toPrettyString())),
+          child: Center(
+              child: Text(mCard.toPrettyString(),
+                  style: TextStyle(color: mCard.getColor()))),
         ),
       ),
     );

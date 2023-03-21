@@ -1,3 +1,5 @@
+import 'package:flutter/animation.dart';
+
 enum Suit { clubs, diamonds, hearts, spades }
 enum Value {
   ace,
@@ -185,5 +187,12 @@ class Card {
 
   Suit getSuit() {
     return _suit;
+  }
+
+  Color getColor() {
+    bool isBlack = _suit == Suit.clubs || _suit == Suit.spades;
+    return (isBlack)
+        ? Color.fromARGB(255, 0, 0, 0)
+        : Color.fromARGB(255, 255, 0, 0);
   }
 }
